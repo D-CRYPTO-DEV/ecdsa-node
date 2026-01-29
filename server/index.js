@@ -161,6 +161,8 @@ if(process.env.NODE_ENV === "development"){
   });
 }
 
+module.exports = app; // <--- THIS IS CRITICAL
+
 /* --------------------------------------------------
    Start Server
 -------------------------------------------------- */
