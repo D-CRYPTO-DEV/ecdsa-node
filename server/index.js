@@ -35,6 +35,8 @@ secp.hashes.sha256 = (...msgs) =>
 -------------------------------------------------- */
 app.use(cors());
 app.use(express.json());
+const __dirname = path.resolve();
+const PORT = process.env.PORT || 3042;
 
 /* --------------------------------------------------
    In-memory balances
@@ -150,6 +152,16 @@ app.post("/send", (req, res) => {
     res.status(400).send({ error: err.message });
   }
 });
+
+
+// prepare for deployment
+if(process.env.NODE_ENV === "production"){
+    app.use(express.static(path.join(__dirname,"../admin/dist")))
+
+    app.get("/{*any}", (req, res)=> {
+        res.sendFile(path.join(__dirname, "../admin", "dist", "index.html"))
+    })
+}
 
 /* --------------------------------------------------
    Start Server
