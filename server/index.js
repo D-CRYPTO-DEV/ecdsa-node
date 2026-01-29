@@ -161,7 +161,7 @@ if(process.env.NODE_ENV === "development"){
   });
 }
 
-module.exports = app; // <--- THIS IS CRITICAL
+export default app; // <--- Add this
 
 /* --------------------------------------------------
    Start Server
