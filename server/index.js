@@ -155,17 +155,14 @@ app.post("/send", (req, res) => {
 
 
 // prepare for deployment
-// if(process.env.NODE_ENV === "production"){
-//     app.use(express.static(path.join(__dirname,"../admin/dist")))
-
-//     app.get("/{*any}", (req, res)=> {
-//         res.sendFile(path.join(__dirname, "../admin", "dist", "index.html"))
-//     })
-// }
+if(process.env.NODE_ENV === "development"){  
+  app.listen(port, () => {
+    console.log(`🚀 Listening on port ${port}`);
+  });
+}
 
 /* --------------------------------------------------
    Start Server
 -------------------------------------------------- */
-app.listen(port, () => {
-  console.log(`🚀 Listening on port ${port}`);
-});
+
+
