@@ -35,7 +35,7 @@ secp.hashes.sha256 = (...msgs) =>
 -------------------------------------------------- */
 app.use(cors());
 app.use(express.json());
-const __dirname = path.resolve();
+// const __dirname = path.resolve();
 const PORT = process.env.PORT || 3042;
 
 /* --------------------------------------------------
