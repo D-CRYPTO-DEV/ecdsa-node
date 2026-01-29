@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build",
+  "outputDirectory": "./dist",
+  "env": {
+    "PORT": "3042",
+    "NODE_ENV": "production"
+  },
+  "functions": {
+    "server/index.js": {
+      "memory": 1024,
+      "maxDuration": 60
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/server/index.js"
+    }
+  ]
+}
